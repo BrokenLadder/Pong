@@ -1,5 +1,8 @@
 package edu.neumont.csc150.pong.view;
 
-public class GUI {
+import javax.swing.JFrame;
 
+public class GUI {
+	private JFrame window;
+	
 }
