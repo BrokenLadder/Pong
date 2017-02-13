@@ -6,5 +6,20 @@ public class GameManager {
 	
 		
 	}
+	public void isWon(){
+		
+	}
+	public void restart(){
+		
+	}
+	public void startAnimationBall(){
+		
+	}
+	public void p1Movement(){
+		
+	}
+	public void p2Movement(){
+		
+	}
 	
 }
