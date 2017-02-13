@@ -3,9 +3,9 @@ package edu.neumont.csc150.pong.controller;
 import edu.neumont.csc150.pong.view.GUI;
 
 public class GameManager {
-
+	private GUI gui;
 	public void run() {
-		GUI gui = new GUI(this);
+		gui = new GUI(this);
 		gui.initGUI();
 	}
 	public void isWon(){

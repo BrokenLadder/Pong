@@ -88,6 +88,10 @@ public class GUI implements ActionListener{
 		// TODO Auto-generated method stub
 		
 	}
+	public void resetGUI() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	
 	
