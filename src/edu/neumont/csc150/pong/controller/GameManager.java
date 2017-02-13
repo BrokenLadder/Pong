@@ -6,12 +6,13 @@ public class GameManager {
 
 	public void run() {
 		GUI gui = new GUI(this);
-		gui.initGui();
+		gui.initGUI();
 	}
 	public void isWon(){
 		
 	}
 	public void restart(){
+		gui.resetGUI();
 		
 	}
 	public void startAnimationBall(){
