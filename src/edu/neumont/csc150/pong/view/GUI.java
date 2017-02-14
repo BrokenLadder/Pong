@@ -1,6 +1,7 @@
 package edu.neumont.csc150.pong.view;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,11 +21,12 @@ public class GUI implements ActionListener{
 	private JMenuBar menuBar;
 	private JMenuItem newGame,exit,theme;
 	private Drawing drawingPanel;
+	private Font gameFont = new Font("Arial", Font.PLAIN,0);
 	public GUI(GameManager gameManager) {
 		game = gameManager;
 	}
 	public void initGUI() {
-		window = new JFrame("Tic-Tac-Toe");
+		window = new JFrame("Pong");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);
 		loadGUI();
@@ -66,13 +68,14 @@ public class GUI implements ActionListener{
 		exit.addActionListener(this);
 	}
 	private void addPanels() {
-		window.add(menuBar);
 		window.add(mainPanel);
+		mainPanel.add(menuBar,BorderLayout.NORTH);
 		mainPanel.add(drawingPanel,BorderLayout.CENTER);
 	}
 	
 	private void setGUIFont() {
-		// TODO Auto-generated method stub
+		mainPanel.setFont(gameFont);
+		menuBar.setFont(gameFont);
 		
 	}
 	private void setGUIMargins() {
