@@ -10,10 +10,12 @@ public class GameManager {
 	private Paddle paddle1;
 	private Paddle paddle2;
 	private Ping ball;
+	private Collision collisions;
 	public void run() {
 		paddle1 = new Paddle(50,120,30,100,100);
-		paddle2 = new Paddle(50,120,30,100,1000);
-		setBall(new Ping(30,30,0,0,300,300));
+		paddle2 = new Paddle(50,120,30,100,2420);
+		ball = new Ping(30,30,0,0,300,300);
+		collisions = new Collision(this);
 		gui = new GUI(this);
 		gui.initGUI();
 	}
@@ -42,8 +44,8 @@ public class GameManager {
 	public Ping getBall() {
 		return ball;
 	}
-	public void setBall(Ping ball) {
-		this.ball = ball;
+	public Collision getCollisions() {
+		return collisions;
 	}
 	
 }

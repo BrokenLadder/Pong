@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import edu.neumont.csc150.pong.controller.GameManager;
+import edu.neumont.csc150.pong.model.Paddle;
 
 public class GUI implements ActionListener, KeyListener{
 	private GameManager game;
@@ -24,6 +26,8 @@ public class GUI implements ActionListener, KeyListener{
 	private JMenuBar menuBar;
 	private JMenuItem newGame,exit,theme;
 	private Drawing drawingPanel;
+	private ArrayList<Paddle> isPressedDown = new ArrayList<>();
+	private ArrayList<Paddle> isPressedUp = new ArrayList<>();
 	private Timer timer = new Timer((200),this);
 	private Font gameFont = new Font("Helvetica", Font.BOLD, 50);
 	
@@ -118,27 +122,57 @@ public class GUI implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
+		
 		if(key == KeyEvent.VK_DOWN){
+			isPressedDown.add(game.getPaddle1());
+		}
+		if(key == KeyEvent.VK_UP){
+			isPressedUp.add(game.getPaddle1());
+		}
+		if(key == KeyEvent.VK_W){
+			isPressedUp.add(game.getPaddle2());
+		}
+		if(key == KeyEvent.VK_S){
+			isPressedDown.add(game.getPaddle2());
+		}
+		drawingPanel.repaint();
+		if (isPressedDown.contains(game.getPaddle1()) && isPressedDown.contains(game.getPaddle2())) {
 			game.getPaddle1().setyPosition(
 					game.getPaddle1().getyPosition() + game.getPaddle1().getyVelocity()
 					);
 			drawingPanel.repaint();
-		}
-		if(key == KeyEvent.VK_UP){
-			game.getPaddle1().setyPosition(
-					game.getPaddle1().getyPosition() - game.getPaddle1().getyVelocity()
-					);
-			drawingPanel.repaint();
-		}
-		if(key == KeyEvent.VK_W){
 			game.getPaddle2().setyPosition(
 					game.getPaddle2().getyPosition() + game.getPaddle2().getyVelocity()
 					);
 			drawingPanel.repaint();
+		} else if (isPressedDown.contains(game.getPaddle2()) && !isPressedDown.contains(game.getPaddle1())) {
+			game.getPaddle2().setyPosition(
+					game.getPaddle2().getyPosition() + game.getPaddle2().getyVelocity()
+					);
+			drawingPanel.repaint();
+		} else if (isPressedDown.contains(game.getPaddle1()) && !isPressedDown.contains(game.getPaddle2()))  {
+			game.getPaddle1().setyPosition(
+					game.getPaddle1().getyPosition() + game.getPaddle1().getyVelocity()
+					);
 		}
-		if(key == KeyEvent.VK_S){
+		drawingPanel.repaint();
+		if (isPressedUp.contains(game.getPaddle1()) && isPressedUp.contains(game.getPaddle2())) {
+			game.getPaddle1().setyPosition(
+					game.getPaddle1().getyPosition() - game.getPaddle1().getyVelocity()
+					);
+			drawingPanel.repaint();
 			game.getPaddle2().setyPosition(
 					game.getPaddle2().getyPosition() - game.getPaddle2().getyVelocity()
+					);
+			drawingPanel.repaint();
+		} else if (isPressedUp.contains(game.getPaddle2()) && !isPressedUp.contains(game.getPaddle1())) {
+			game.getPaddle2().setyPosition(
+					game.getPaddle2().getyPosition() - game.getPaddle2().getyVelocity()
+					);
+			drawingPanel.repaint();
+		} else if (isPressedUp.contains(game.getPaddle1()) && !isPressedUp.contains(game.getPaddle2()))  {
+			game.getPaddle1().setyPosition(
+					game.getPaddle1().getyPosition() - game.getPaddle1().getyVelocity()
 					);
 			drawingPanel.repaint();
 		}
@@ -146,6 +180,19 @@ public class GUI implements ActionListener, KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_DOWN){
+			isPressedDown.remove(game.getPaddle1());
+		}
+		if(key == KeyEvent.VK_UP){
+			isPressedUp.remove(game.getPaddle1());
+		}
+		if(key == KeyEvent.VK_W){
+			isPressedUp.remove(game.getPaddle2());
+		}
+		if(key == KeyEvent.VK_S){
+			isPressedDown.remove(game.getPaddle2());
+		}
 	}
 
 	@Override
