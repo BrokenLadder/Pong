@@ -2,6 +2,7 @@ package edu.neumont.csc150.pong.controller;
 
 import edu.neumont.csc150.pong.model.Paddle;
 import edu.neumont.csc150.pong.model.Ping;
+
 import edu.neumont.csc150.pong.view.GUI;
 
 public class GameManager {
@@ -10,10 +11,10 @@ public class GameManager {
 	private Paddle paddle2;
 	private Ping ball;
 	public void run() {
-		paddle1 = new Paddle(50,120,0,100,100);
-		paddle2 = new Paddle(50,120,0,800,100);
-		ball = new Ping(30,30,0,0,300,300);
-		gui = new GUI(this, ball);
+		paddle1 = new Paddle(50,120,30,100,100);
+		paddle2 = new Paddle(50,120,30,100,1000);
+		setBall(new Ping(30,30,0,0,300,300));
+		gui = new GUI(this);
 		gui.initGUI();
 	}
 	public void isWon(){
@@ -31,6 +32,18 @@ public class GameManager {
 	}
 	public void p2Movement(){
 		
+	}
+	public Paddle getPaddle1() {
+		return paddle1;
+	}
+	public Paddle getPaddle2() {
+		return paddle2;
+	}
+	public Ping getBall() {
+		return ball;
+	}
+	public void setBall(Ping ball) {
+		this.ball = ball;
 	}
 	
 }

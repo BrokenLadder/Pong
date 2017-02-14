@@ -5,14 +5,13 @@ public class Paddle {
 	int width;
 	int height;
 	int yVelocity;
-	int xVelocity;
 	int yPosition;
 	int xPosition;
 	
-public Paddle(int width, int height, int xVelocity, int yPosition, int xPosition) {
+public Paddle(int width, int height, int yVelocity, int yPosition, int xPosition) {
 	this.width = width;
 	this.height = height;
-	this.xVelocity = xVelocity;
+	this.yVelocity = yVelocity;
 	this.yPosition = yPosition;
 	this.xPosition = xPosition;
 }
@@ -51,18 +50,6 @@ public int getHeight() {
  */
 public void setHeight(int height) {
 	this.height = height;
-}
-/**
- * @return the xVelocity
- */
-public int getxVelocity() {
-	return xVelocity;
-}
-/**
- * @param xVelocity the xVelocity to set
- */
-public void setxVelocity(int xVelocity) {
-	this.xVelocity = xVelocity;
 }
 /**
  * @return the yPosition

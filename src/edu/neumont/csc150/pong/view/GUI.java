@@ -12,12 +12,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import edu.neumont.csc150.pong.controller.GameManager;
-import edu.neumont.csc150.pong.model.Ping;
 
 public class GUI implements ActionListener, KeyListener{
-	private Ping ball;
 	private GameManager game;
 	private JFrame window;
 	private JPanel mainPanel;
@@ -25,11 +24,11 @@ public class GUI implements ActionListener, KeyListener{
 	private JMenuBar menuBar;
 	private JMenuItem newGame,exit,theme;
 	private Drawing drawingPanel;
+	private Timer timer = new Timer((200),this);
 	private Font gameFont = new Font("Helvetica", Font.BOLD, 50);
 	
-	public GUI(GameManager gameManager,Ping ball) {
+	public GUI(GameManager gameManager) {
 		game = gameManager;
-		this.ball = ball;
 	}
 	
 	public void initGUI() {
@@ -47,6 +46,7 @@ public class GUI implements ActionListener, KeyListener{
 	
 	private void loadGUI() {
 		initializeItems();
+		timer.start();
 		createMenu();
 		setLayouts();
 		addListeners();
@@ -56,18 +56,13 @@ public class GUI implements ActionListener, KeyListener{
 		setGUITheme();
 	}
 	private void initializeItems() { //TODO add to uml
-		drawingPanel = new Drawing(ball);
 		mainPanel = new JPanel();
+		drawingPanel = new Drawing(game);
 		menu = new JMenu("Game Menu");
 		menuBar = new JMenuBar();
 		newGame = new JMenuItem("New Game");
 		exit = new JMenuItem("Exit");
 		theme = new JMenuItem("Theme");
-		
-		newGame.setFont(gameFont);
-		exit.setFont(gameFont);
-		theme.setFont(gameFont);
-		
 	}
 	private void createMenu() { //TODO add to uml
 		menu.add(newGame);
@@ -75,7 +70,6 @@ public class GUI implements ActionListener, KeyListener{
 		menu.add(exit);
 		menuBar.add(menu);
 		window.setJMenuBar(menuBar);
-		
 	}
 	private void setLayouts() {
 		mainPanel.setLayout(new BorderLayout());
@@ -88,7 +82,6 @@ public class GUI implements ActionListener, KeyListener{
 	}
 	
 	private void addPanels() {
-		window.add(menuBar);
 		window.add(mainPanel);
 		mainPanel.add(drawingPanel,BorderLayout.CENTER);
 	}
@@ -97,7 +90,9 @@ public class GUI implements ActionListener, KeyListener{
 		mainPanel.setFont(gameFont);
 		menuBar.setFont(gameFont);
 		menu.setFont(gameFont);
-		
+		newGame.setFont(gameFont);
+		exit.setFont(gameFont);
+		theme.setFont(gameFont);
 	}
 	
 	private void setGUIMargins() {
@@ -124,27 +119,37 @@ public class GUI implements ActionListener, KeyListener{
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_DOWN){
-			JOptionPane.showMessageDialog(null, "It worked MARTY");
+			game.getPaddle1().setyPosition(
+					game.getPaddle1().getyPosition() + game.getPaddle1().getyVelocity()
+					);
+			drawingPanel.repaint();
 		}
 		if(key == KeyEvent.VK_UP){
-			
+			game.getPaddle1().setyPosition(
+					game.getPaddle1().getyPosition() - game.getPaddle1().getyVelocity()
+					);
+			drawingPanel.repaint();
 		}
 		if(key == KeyEvent.VK_W){
-			JOptionPane.showMessageDialog(null, "It worked AGAIN MARTY");
+			game.getPaddle2().setyPosition(
+					game.getPaddle2().getyPosition() + game.getPaddle2().getyVelocity()
+					);
+			drawingPanel.repaint();
 		}
-		
+		if(key == KeyEvent.VK_S){
+			game.getPaddle2().setyPosition(
+					game.getPaddle2().getyPosition() - game.getPaddle2().getyVelocity()
+					);
+			drawingPanel.repaint();
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	
