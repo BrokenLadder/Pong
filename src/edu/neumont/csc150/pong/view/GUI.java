@@ -14,8 +14,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import edu.neumont.csc150.pong.controller.GameManager;
+import edu.neumont.csc150.pong.model.Ping;
 
 public class GUI implements ActionListener, KeyListener{
+	private Ping ball;
 	private GameManager game;
 	private JFrame window;
 	private JPanel mainPanel;
@@ -25,8 +27,9 @@ public class GUI implements ActionListener, KeyListener{
 	private Drawing drawingPanel;
 	private Font gameFont = new Font("Helvetica", Font.BOLD, 50);
 	
-	public GUI(GameManager gameManager) {
+	public GUI(GameManager gameManager,Ping ball) {
 		game = gameManager;
+		this.ball = ball;
 	}
 	
 	public void initGUI() {
@@ -51,7 +54,7 @@ public class GUI implements ActionListener, KeyListener{
 		setGUITheme();
 	}
 	private void initializeItems() { //TODO add to uml
-		drawingPanel = new Drawing();
+		drawingPanel = new Drawing(ball);
 		mainPanel = new JPanel();
 		menu = new JMenu("Game Menu");
 		menuBar = new JMenuBar();

@@ -10,10 +10,10 @@ public class GameManager {
 	private Paddle paddle2;
 	private Ping ball;
 	public void run() {
-		gui = new GUI(this);
 		paddle1 = new Paddle(50,120,0,100,100);
 		paddle2 = new Paddle(50,120,0,800,100);
 		ball = new Ping(30,30,0,0,400,400);
+		gui = new GUI(this, ball);
 		gui.initGUI();
 	}
 	public void isWon(){
