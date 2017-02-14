@@ -37,9 +37,11 @@ public class GUI implements ActionListener, KeyListener{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);
 		loadGUI();
+		window.addKeyListener(this);
 		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		window.getContentPane().add(mainPanel);
 		window.setVisible(true);
+		
 		
 	}
 	
@@ -65,6 +67,7 @@ public class GUI implements ActionListener, KeyListener{
 		newGame.setFont(gameFont);
 		exit.setFont(gameFont);
 		theme.setFont(gameFont);
+		
 	}
 	private void createMenu() { //TODO add to uml
 		menu.add(newGame);
@@ -121,7 +124,13 @@ public class GUI implements ActionListener, KeyListener{
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_DOWN){
-			//JOptionPane
+			JOptionPane.showMessageDialog(null, "It worked MARTY");
+		}
+		if(key == KeyEvent.VK_UP){
+			
+		}
+		if(key == KeyEvent.VK_W){
+			JOptionPane.showMessageDialog(null, "It worked AGAIN MARTY");
 		}
 		
 	}
