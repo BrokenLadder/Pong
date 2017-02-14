@@ -12,7 +12,7 @@ public class GameManager {
 	public void run() {
 		paddle1 = new Paddle(50,120,0,100,100);
 		paddle2 = new Paddle(50,120,0,800,100);
-		ball = new Ping(30,30,0,0,400,400);
+		ball = new Ping(30,30,0,0,300,300);
 		gui = new GUI(this, ball);
 		gui.initGUI();
 	}

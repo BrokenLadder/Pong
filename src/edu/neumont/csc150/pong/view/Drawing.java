@@ -21,6 +21,7 @@ public class Drawing extends JPanel implements ActionListener {
 	}
 	@Override
 	public void paint(Graphics g) {
+		g.setColor(Color.BLUE);
 		g.fillRect(ping.getxPosition(), ping.getyPosition(), ping.getWidth(), ping.getHeight());
 		super.paint(g);
 		
