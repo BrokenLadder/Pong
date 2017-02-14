@@ -8,6 +8,7 @@ public class Paddle {
 	int xVelocity;
 	int yPosition;
 	int xPosition;
+	
 public Paddle(int width, int height, int xVelocity, int yPosition, int xPosition) {
 	this.width = width;
 	this.height = height;
