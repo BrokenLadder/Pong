@@ -8,7 +8,14 @@ int yVelocity;
 int xPosition;
 int yPosition;
 
-
+public Ping(int width, int height, int xVelocity, int yVelocity, int xPosition, int yPosition) {
+	this.width = width;
+	this.height = height;
+	this.xVelocity = xVelocity;
+	this.yVelocity = yVelocity;
+	this.xPosition = xPosition;
+	this.yPosition = yPosition;
+}
 /**
  * @return the width
  */
