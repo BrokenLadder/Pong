@@ -2,15 +2,19 @@ package edu.neumont.csc150.pong.model;
 
 
 public class Paddle {
-int width;
-int yVelocity;
-int height;
-int xVelocity;
-int yPosition;
-int xPosition;
-
-
-
+	int width;
+	int yVelocity;
+	int height;
+	int xVelocity;
+	int yPosition;
+	int xPosition;
+public Paddle(int width, int height, int xVelocity, int yPosition, int xPosition) {
+	this.width = width;
+	this.height = height;
+	this.xVelocity = xVelocity;
+	this.yPosition = yPosition;
+	this.xPosition = xPosition;
+}
 /**
  * @return the width
  */
