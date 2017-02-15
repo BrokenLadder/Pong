@@ -80,5 +80,7 @@ public class GameManager {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	
+	public GUI getGUI(){
+		return this.gui;
+	}
 }
