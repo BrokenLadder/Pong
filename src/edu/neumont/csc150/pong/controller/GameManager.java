@@ -1,5 +1,7 @@
 package edu.neumont.csc150.pong.controller;
 
+import java.io.IOException;
+
 import edu.neumont.csc150.pong.model.Paddle;
 import edu.neumont.csc150.pong.model.Ping;
 
@@ -11,10 +13,10 @@ public class GameManager {
 	private Paddle paddle2;
 	private Ping ball;
 	private Collision collisions;
-	public void run() {
-		paddle1 = new Paddle(50,120,30,100,100);
-		paddle2 = new Paddle(50,120,30,100,2420);
-		ball = new Ping(30,30,0,0,300,300);
+	public void run() throws IOException {
+		paddle1 = new Paddle(50,120,50,100,100);
+		paddle2 = new Paddle(50,120,50,100,2412);
+		ball = new Ping(30,30,40,10,1265,611);
 		collisions = new Collision(this);
 		gui = new GUI(this);
 		gui.initGUI();
