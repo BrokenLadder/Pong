@@ -1,6 +1,5 @@
 package edu.neumont.csc150.pong.controller;
 
-import java.awt.Graphics;
 import java.io.IOException;
 
 import edu.neumont.csc150.pong.model.Paddle;
@@ -19,28 +18,24 @@ public class GameManager {
 	public final int PADDLE1 = 1;
 	public final int PADDLE2 = 2;
 	public final int PADDLE_BOTH = 3;
+	private int score;
 	public void run() throws IOException {
-		paddle1 = new Paddle(50,120,50,100,100);
-		paddle2 = new Paddle(50,120,50,100,2412);
+		setScore(0);
+		paddle1 = new Paddle(30,250,50,100,100);
+		paddle2 = new Paddle(30,250,50,100,2412);
 		ball = new Ping(30,30,40,10,1265,611);
 		collisions = new Collision(this);
 		gui = new GUI(this);
 		gui.initGUI();
+	}
+	public void resetBall() {
+		ball = new Ping(30,30,40,10,1265,611);
 	}
 	public void isWon(){
 		
 	}
 	public void restart(){
 		gui.resetGUI();
-		
-	}
-	public void startAnimationBall(){
-		
-	}
-	public void p1Movement(){
-		
-	}
-	public void p2Movement(){
 		
 	}
 	public Paddle getPaddle1() {
@@ -78,6 +73,12 @@ public class GameManager {
 			}
 		}
 		gui.getDrawingPanel().repaint();
+	}
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
 	}
 	
 }
