@@ -20,11 +20,11 @@ public class Drawing extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -7398355064246963722L;
 	private GameManager game;
 	private BufferedImage image;
-	private Timer timer = new Timer(2, this);
+	private Timer timer = new Timer(1, this);
 	
 	public Drawing(GameManager game) throws IOException {
 		this.game = game;
-		image = ImageIO.read(new File("pong_default2.png"));
+		image = ImageIO.read(new File("zelda_theme1.png"));
 		//this.setBackground(Color.darkGray);
 	}
 	@Override
@@ -48,6 +48,7 @@ public class Drawing extends JPanel implements ActionListener {
 			game.getBall().setyPosition(game.getBall().getyPosition() + game.getBall().getyVelocity());;
 			game.getCollisions().scoreCollision(2512, 0);
 			game.getCollisions().upDownCollision(0, 1386);
+			game.getCollisions().paddleCollision();
 		}
 		this.repaint();
 		

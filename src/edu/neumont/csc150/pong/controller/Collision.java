@@ -32,13 +32,14 @@ public class Collision {
 		int p2Height = game.getPaddle2().getHeight();
 		int p1XPos = game.getPaddle1().getxPosition();
 		int p2XPos = game.getPaddle2().getxPosition();
-		
-		
-		if(game.getBall().getxPosition() == game.getPaddle1().getxPosition()){
-			if(game.getBall().getyPosition() >= p1Height){
-				
-			}
+		if(){
+			game.getBall().setxVelocity(game.getBall().getxVelocity() * 1);
 		}
+		if(game.getBall().getxPosition() >= game.getPaddle2().getxPosition() && 
+				game.getBall().getxPosition() <= game.getPaddle2().getxPosition() + game.getPaddle2().getWidth()
+				&& game.getBall().getxPosition() >= game.getPaddle2().getyPosition() && game.getBall().getxPosition() <= game.getPaddle2().getyPosition() + game.getPaddle2().getHeight()){
+					game.getBall().setxVelocity(game.getBall().getxVelocity() * 1);
+				}
 	}
 	/**
 	 * Detects if there is a collision and returns true if paddle 1 tries to leave the screen
