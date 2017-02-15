@@ -120,7 +120,9 @@ public class GUI implements ActionListener, KeyListener{
 		
 	}
 
-	
+	public Drawing getDrawingPanel() {
+		return this.drawingPanel;
+	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -138,38 +140,19 @@ public class GUI implements ActionListener, KeyListener{
 			isPressedDown.add(game.getPaddle1());
 		}
 		if (isPressedDown.contains(game.getPaddle1()) && isPressedDown.contains(game.getPaddle2())) {
-			game.getPaddle1().setyPosition( //TODO MAYBE? make separate method, add a repaint and change the position multiple times to make smoother animation
-					game.getPaddle1().getyPosition() + game.getPaddle1().getyVelocity()
-					);
-			game.getPaddle2().setyPosition(
-					game.getPaddle2().getyPosition() + game.getPaddle2().getyVelocity()
-					);
+			game.paddleMovement(game.PADDLE_BOTH,game.VELOCITY_POSITIVE);
 		} else if (isPressedDown.contains(game.getPaddle2()) && !isPressedDown.contains(game.getPaddle1())) {
-			game.getPaddle2().setyPosition(
-					game.getPaddle2().getyPosition() + game.getPaddle2().getyVelocity()
-					);
+			game.paddleMovement(game.PADDLE2,game.VELOCITY_POSITIVE);
 		} else if (isPressedDown.contains(game.getPaddle1()) && !isPressedDown.contains(game.getPaddle2()))  {
-			game.getPaddle1().setyPosition(
-					game.getPaddle1().getyPosition() + game.getPaddle1().getyVelocity()
-					);
+			game.paddleMovement(game.PADDLE1,game.VELOCITY_POSITIVE);
 		}
 		if (isPressedUp.contains(game.getPaddle1()) && isPressedUp.contains(game.getPaddle2())) {
-			game.getPaddle1().setyPosition(
-					game.getPaddle1().getyPosition() - game.getPaddle1().getyVelocity()
-					);
-			game.getPaddle2().setyPosition(
-					game.getPaddle2().getyPosition() - game.getPaddle2().getyVelocity()
-					);
+			game.paddleMovement(game.PADDLE_BOTH,game.VELOCITY_NEGATIVE);
 		} else if (isPressedUp.contains(game.getPaddle2()) && !isPressedUp.contains(game.getPaddle1())) {
-			game.getPaddle2().setyPosition(
-					game.getPaddle2().getyPosition() - game.getPaddle2().getyVelocity()
-					);
+			game.paddleMovement(game.PADDLE2,game.VELOCITY_NEGATIVE);
 		} else if (isPressedUp.contains(game.getPaddle1()) && !isPressedUp.contains(game.getPaddle2()))  {
-			game.getPaddle1().setyPosition(
-					game.getPaddle1().getyPosition() - game.getPaddle1().getyVelocity()
-					);
+			game.paddleMovement(game.PADDLE1,game.VELOCITY_NEGATIVE);
 		}
-		drawingPanel.repaint();
 	}
 
 	@Override

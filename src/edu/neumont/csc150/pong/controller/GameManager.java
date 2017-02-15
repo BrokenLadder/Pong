@@ -14,6 +14,11 @@ public class GameManager {
 	private Paddle paddle2;
 	private Ping ball;
 	private Collision collisions;
+	public final int VELOCITY_NEGATIVE = -1;
+	public final int VELOCITY_POSITIVE = 1;
+	public final int PADDLE1 = 1;
+	public final int PADDLE2 = 2;
+	public final int PADDLE_BOTH = 3;
 	public void run() throws IOException {
 		paddle1 = new Paddle(50,120,50,100,100);
 		paddle2 = new Paddle(50,120,50,100,2412);
@@ -49,6 +54,30 @@ public class GameManager {
 	}
 	public Collision getCollisions() {
 		return collisions;
+	}
+	public void paddleMovement(int paddleNum, int direction) { //TODO add to UML
+		if(paddleNum == PADDLE_BOTH) {
+			if (direction == VELOCITY_POSITIVE) {
+				paddle1.setyPosition(paddle1.getyPosition() + paddle1.getyVelocity());
+				paddle2.setyPosition(paddle2.getyPosition() + paddle2.getyVelocity());
+			} else {
+				paddle1.setyPosition(paddle1.getyPosition() - paddle1.getyVelocity());
+				paddle2.setyPosition(paddle2.getyPosition() - paddle2.getyVelocity());
+			}
+		} else if (paddleNum == PADDLE1) {
+			if (direction == VELOCITY_POSITIVE) {
+				paddle1.setyPosition(paddle1.getyPosition() + paddle1.getyVelocity());
+			} else {
+				paddle1.setyPosition(paddle1.getyPosition() - paddle1.getyVelocity());
+			}
+		} else if (paddleNum == PADDLE2) {
+			if (direction == VELOCITY_POSITIVE) {
+				paddle2.setyPosition(paddle2.getyPosition() + paddle2.getyVelocity());
+			} else {
+				paddle2.setyPosition(paddle2.getyPosition() - paddle2.getyVelocity());
+			}
+		}
+		gui.getDrawingPanel().repaint();
 	}
 	
 }
