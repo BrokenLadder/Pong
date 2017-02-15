@@ -1,6 +1,10 @@
 package edu.neumont.csc150.pong.model;
 
-
+/**
+ * Class that creates the Paddle
+ * @author Gabe B
+ *
+ */
 public class Paddle {
 	int width;
 	int height;
@@ -8,6 +12,14 @@ public class Paddle {
 	int yPosition;
 	int xPosition;
 	
+/**
+ * Constructor method for Paddle	
+ * @param width
+ * @param height
+ * @param yVelocity
+ * @param yPosition
+ * @param xPosition
+ */
 public Paddle(int width, int height, int yVelocity, int yPosition, int xPosition) {
 	this.width = width;
 	this.height = height;

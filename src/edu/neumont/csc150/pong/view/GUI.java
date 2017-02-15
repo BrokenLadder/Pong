@@ -18,7 +18,11 @@ import javax.swing.Timer;
 
 import edu.neumont.csc150.pong.controller.GameManager;
 import edu.neumont.csc150.pong.model.Paddle;
-
+/**
+ * Class that creates the GUI
+ * @author Gabe B
+ *
+ */
 public class GUI implements ActionListener, KeyListener{
 	private GameManager game;
 	private JFrame window;
@@ -31,11 +35,17 @@ public class GUI implements ActionListener, KeyListener{
 	private ArrayList<Paddle> isPressedUp = new ArrayList<>();
 	private Timer timer = new Timer((200),this);
 	private Font gameFont = new Font("Helvetica", Font.BOLD, 50);
-	
+	/**
+	 * Gives the GUI access to gameManager
+	 * @param gameManager
+	 */
 	public GUI(GameManager gameManager) {
 		game = gameManager;
 	}
-	
+	/**
+	 * Initializes the GUI
+	 * @throws IOException
+	 */
 	public void initGUI() throws IOException {
 		window = new JFrame("Pong");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
