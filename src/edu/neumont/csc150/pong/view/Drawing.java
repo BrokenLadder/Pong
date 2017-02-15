@@ -32,7 +32,7 @@ public class Drawing extends JPanel implements ActionListener {
 	 */
 	public Drawing(GameManager game) throws IOException {
 		this.game = game;
-		//image = ImageIO.read(new File("zelda_theme1.png"));
+		image = ImageIO.read(new File("zelda_theme1.png"));
 		//this.setBackground(Color.darkGray);
 	}
 	/**
@@ -63,6 +63,7 @@ public class Drawing extends JPanel implements ActionListener {
 			game.getCollisions().scoreCollision(2512, 0);
 			game.getCollisions().upDownCollision(0, 1386);
 			game.getCollisions().paddleCollision();
+			
 		}
 		this.repaint();
 		
