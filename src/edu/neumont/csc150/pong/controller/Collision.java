@@ -40,7 +40,7 @@ public class Collision {
 		if(ballx == p1XPos  && bally >= p1YPos && bally <= p1YPos + p1Height){
 			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 			
-		//}
+		}
 		if(ballx == p2XPos  && bally >= p2YPos && bally <= p2YPos + p2Height){
 			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 		}
