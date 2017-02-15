@@ -87,7 +87,7 @@ public class GameManager {
 	 * @param direction
 	 */
 	public void paddleMovement(int paddleNum, int direction) { //TODO add to UML
-		if(this.collisions.isPaddle1Collision() == false){
+		if(this.collisions.isPaddle1Collision()){
 			if(paddleNum == PADDLE_BOTH) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle1.setyPosition(paddle1.getyPosition() + paddle1.getyVelocity());
