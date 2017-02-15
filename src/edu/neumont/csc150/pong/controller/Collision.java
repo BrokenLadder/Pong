@@ -5,6 +5,8 @@ public class Collision {
 	public Collision(GameManager game){
 		this.game = game;
 	}
+	
+	
 	public void nonScoreCollision(){
 		
 	}

@@ -1,5 +1,6 @@
 package edu.neumont.csc150.pong.controller;
 
+import java.awt.Graphics;
 import java.io.IOException;
 
 import edu.neumont.csc150.pong.model.Paddle;

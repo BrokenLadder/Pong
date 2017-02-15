@@ -33,4 +33,7 @@ public class Drawing extends JPanel {
 		g.fillRect(game.getPaddle2().getxPosition(), game.getPaddle2().getyPosition(), 
 				   game.getPaddle2().getWidth(), game.getPaddle2().getHeight());
 	}
+
+
+	
 }
