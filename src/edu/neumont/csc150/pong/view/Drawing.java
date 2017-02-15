@@ -15,18 +15,29 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import edu.neumont.csc150.pong.controller.GameManager;
-
+/**
+ * Class that draws the ball and creates the animation
+ * @author Gabe B
+ *
+ */
 public class Drawing extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -7398355064246963722L;
 	private GameManager game;
 	private BufferedImage image;
 	private Timer timer = new Timer(1, this);
-	
+	/**
+	 * Sets the background to an image
+	 * @param game
+	 * @throws IOException
+	 */
 	public Drawing(GameManager game) throws IOException {
 		this.game = game;
-		image = ImageIO.read(new File("zelda_theme1.png"));
+		//image = ImageIO.read(new File("zelda_theme1.png"));
 		//this.setBackground(Color.darkGray);
 	}
+	/**
+	 * Paints the items on the screen, Ball, paddles etc
+	 */
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -40,6 +51,9 @@ public class Drawing extends JPanel implements ActionListener {
 				   game.getPaddle2().getWidth(), game.getPaddle2().getHeight());
 	
 	}
+	/**
+	 * @Override actionperformend moves the ball
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -53,9 +67,15 @@ public class Drawing extends JPanel implements ActionListener {
 		this.repaint();
 		
 	}
+	/**
+	 * Starts the timer
+	 */
 	public void startTimer(){
 		this.timer.start();
 	}
+	/**
+	 * Stops the timer
+	 */
 	public void stopTimer(){
 		this.timer.stop();
 	}

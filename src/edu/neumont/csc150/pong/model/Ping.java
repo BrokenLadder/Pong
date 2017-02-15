@@ -1,5 +1,9 @@
 package edu.neumont.csc150.pong.model;
-
+/**
+ * Class that holds properties of the Ball
+ * @author Gabe B
+ *
+ */
 public class Ping {
 int width;
 int height;
@@ -7,7 +11,15 @@ int xVelocity;
 int yVelocity;
 int xPosition;
 int yPosition;
-
+/**
+ * Constructor for the Ball
+ * @param width
+ * @param height
+ * @param xVelocity
+ * @param yVelocity
+ * @param xPosition
+ * @param yPosition
+ */
 public Ping(int width, int height, int xVelocity, int yVelocity, int xPosition, int yPosition) {
 	this.width = width;
 	this.height = height;

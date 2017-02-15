@@ -60,7 +60,10 @@ public class GUI implements ActionListener, KeyListener{
 		System.out.println("height: " + window.getHeight());
 		
 	}
-	
+	/**
+	 * loads the GUI
+	 * @throws IOException
+	 */
 	private void loadGUI() throws IOException {
 		initializeItems();
 		timer.start();
@@ -72,6 +75,10 @@ public class GUI implements ActionListener, KeyListener{
 		setGUIMargins();
 		setGUITheme();
 	}
+	/**
+	 * Initializes the items
+	 * @throws IOException
+	 */
 	private void initializeItems() throws IOException { //TODO add to uml
 		mainPanel = new JPanel();
 		drawingPanel = new Drawing(game);
@@ -81,6 +88,9 @@ public class GUI implements ActionListener, KeyListener{
 		exit = new JMenuItem("Exit");
 		theme = new JMenuItem("Theme");
 	}
+	/**
+	 * Adds the menu to the window
+	 */
 	private void createMenu() { //TODO add to uml
 		menu.add(newGame);
 		menu.add(theme);
@@ -88,21 +98,30 @@ public class GUI implements ActionListener, KeyListener{
 		menuBar.add(menu);
 		window.setJMenuBar(menuBar);
 	}
+	/**
+	 * sets Layouts
+	 */
 	private void setLayouts() {
 		mainPanel.setLayout(new BorderLayout());
 	}
-	
+	/**
+	 * Adds listeners
+	 */
 	private void addListeners() {
 		newGame.addActionListener(this);
 		theme.addActionListener(this);
 		exit.addActionListener(this);
 	}
-	
+	/**
+	 * adds panels to the mainPanel
+	 */
 	private void addPanels() {
 		window.add(mainPanel);
 		mainPanel.add(drawingPanel,BorderLayout.CENTER);
 	}
-	
+	/**
+	 * Sets the font of the GUI
+	 */
 	private void setGUIFont() {
 		mainPanel.setFont(gameFont);
 		menuBar.setFont(gameFont);
@@ -111,15 +130,23 @@ public class GUI implements ActionListener, KeyListener{
 		exit.setFont(gameFont);
 		theme.setFont(gameFont);
 	}
-	
+	/**
+	 * Sets the Margins of the GUI
+	 */
 	private void setGUIMargins() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * Sets the theme of the GUI
+	 */
 	private void setGUITheme() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * @Override actionPerformend method for New Game, Exit, Theme
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -134,6 +161,9 @@ public class GUI implements ActionListener, KeyListener{
 			}
 		}
 	}
+	/**
+	 * resets the GUI
+	 */
 	public void resetGUI() {
 		drawingPanel.stopTimer();
 		game.getBall().setxPosition(1265);
@@ -142,12 +172,18 @@ public class GUI implements ActionListener, KeyListener{
 		game.getPaddle1().setxPosition(100);
 		game.getPaddle2().setyPosition(100);
 		game.getPaddle2().setxPosition(2412);
+		drawingPanel.repaint();
 	}
-
+	/**
+	 * returns the drawing Panel
+	 * @return
+	 */
 	public Drawing getDrawingPanel() {
 		return this.drawingPanel;
 	}
-	
+	/**
+	 * @Override keypressed, allows users to press the keys to move the Paddles
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -181,7 +217,9 @@ public class GUI implements ActionListener, KeyListener{
 			game.paddleMovement(game.PADDLE1,game.VELOCITY_NEGATIVE);
 		}
 	}
-
+	/**
+	 * Key Released, removes keys from the isPressedDown list 
+	 */
 	@Override
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
