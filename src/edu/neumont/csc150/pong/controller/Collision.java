@@ -37,7 +37,7 @@ public class Collision {
 		int ballx = game.getBall().getxPosition();
 		int bally = game.getBall().getyPosition();
 		System.out.println("Hello!");
-		if(ballx == p1XPos  && bally >= p1YPos && bally <= p1YPos + p1Height){
+		if(ballx == p1XPos && bally >= p1YPos && bally <= p1YPos + p1Height){
 			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 			
 		}
