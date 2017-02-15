@@ -53,9 +53,9 @@ public class Collision {
 	 */
 	public boolean isPaddle1Collision(){
 		if (game.getPaddle1().getyPosition() > 0 && game.getPaddle1().getyPosition() < 1900) {
-			return false;
-		} else {
 			return true;
+		} else {
+			return false;
 		}
 		
 	}
@@ -65,9 +65,9 @@ public class Collision {
 	 */
 	public boolean isPaddle2Collision(){
 		if (game.getPaddle2().getyPosition() > 0 && game.getPaddle2().getyPosition() < 1900) {
-			return false;
-		} else {
 			return true;
+		} else {
+			return false;
 		}
 		
 	}
