@@ -111,9 +111,18 @@ public class GUI implements ActionListener, KeyListener{
 		
 	}
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		if(source instanceof JMenuItem) {
+			JMenuItem sourceItem = (JMenuItem) source;
+			if(sourceItem.getText().equals("New Game")) {
+				game.restart();
+			} else if(sourceItem.getText().equals("Exit")) {
+				System.exit(0);
+			} else if(sourceItem.getText().equals("Theme")) {
+				
+			}
+		}
 	}
 	public void resetGUI() {
 		// TODO Auto-generated method stub
@@ -127,6 +136,9 @@ public class GUI implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_SPACE) {
+			drawingPanel.startTimer();
+		}
 		if(key == KeyEvent.VK_UP){
 			isPressedUp.add(game.getPaddle2());
 		}
