@@ -15,14 +15,30 @@ public class Collision {
 		
 	}
 	public void scoreCollision(int rWall, int lWall){
-		if(game.getBall().getxPosition() >= rWall || game.getBall().getxPosition() <= lWall){
+		if(game.getBall().getxPosition() >= rWall){
 			game.resetBall();
+			game.getGUI().getDrawingPanel().stopTimer();
+			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+		}
+		if( game.getBall().getxPosition() <= lWall){
+			game.resetBall();
+			game.getGUI().getDrawingPanel().stopTimer();
 			
 		}
 		
 	}
 	public void paddleCollision(){
-		//if(game.getPaddle1().getxPosition() == game.getBall())
+		int p1Height = game.getPaddle1().getHeight();
+		int p2Height = game.getPaddle2().getHeight();
+		int p1XPos = game.getPaddle1().getxPosition();
+		int p2XPos = game.getPaddle2().getxPosition();
+		
+		
+		if(game.getBall().getxPosition() == game.getPaddle1().getxPosition()){
+			if(game.getBall().getyPosition() >= p1Height){
+				
+			}
+		}
 	}
 	/**
 	 * Detects if there is a collision and returns true if paddle 1 tries to leave the screen

@@ -30,6 +30,7 @@ public class GameManager {
 	}
 	public void resetBall() {
 		ball = new Ping(30,30,40,10,1265,611);
+
 	}
 	public void isWon(){
 		
