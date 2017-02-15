@@ -46,13 +46,17 @@ public class Drawing extends JPanel implements ActionListener {
 		if(e.getSource() == this.timer){
 			game.getBall().setxPosition(game.getBall().getxPosition() + game.getBall().getxVelocity());;
 			game.getBall().setyPosition(game.getBall().getyPosition() + game.getBall().getyVelocity());;
-
+			game.getCollisions().scoreCollision(2512, 0);
+			game.getCollisions().upDownCollision(0, 1386);
 		}
 		this.repaint();
 		
 	}
 	public void startTimer(){
 		this.timer.start();
+	}
+	public void stopTimer(){
+		this.timer.stop();
 	}
 
 	
