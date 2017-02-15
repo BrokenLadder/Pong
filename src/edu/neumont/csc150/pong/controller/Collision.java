@@ -16,7 +16,7 @@ public class Collision {
 	}
 	public void scoreCollision(int rWall, int lWall){
 		if(game.getBall().getxPosition() >= rWall || game.getBall().getxPosition() <= lWall){
-			
+			game.resetBall();
 			
 		}
 		
