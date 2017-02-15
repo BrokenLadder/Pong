@@ -8,8 +8,8 @@ public class Collision {
 	
 	
 	public void upDownCollision(int ceiling, int floor){
-		if(game.getBall().getxPosition() >= ceiling - game.getBall().getHeight() || game.getBall().getxPosition() <= floor - game.getBall().getHeight()){
-			game.getBall().setyVelocity(game.getBall().getyVelocity() * -1);
+		if(game.getBall().getyPosition() >= ceiling - game.getBall().getHeight() || game.getBall().getyPosition() <= floor - game.getBall().getHeight()){
+			//game.getBall().setyVelocity(game.getBall().getyVelocity() * -1);
 		}
 
 		
@@ -17,12 +17,12 @@ public class Collision {
 	public void scoreCollision(int rWall, int lWall){
 		if(game.getBall().getxPosition() >= rWall || game.getBall().getxPosition() <= lWall){
 			
-			System.out.println("YOU SCORED");
+			
 		}
 		
 	}
 	public void paddleCollision(){
-		
+		//if(game.getPaddle1().getxPosition() == game.getBall())
 	}
 	/**
 	 * Detects if there is a collision and returns true if paddle 1 tries to leave the screen
