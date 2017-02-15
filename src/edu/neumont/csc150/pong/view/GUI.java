@@ -131,7 +131,7 @@ public class GUI implements ActionListener, KeyListener{
 		game.getPaddle1().setyPosition(100);
 		game.getPaddle1().setxPosition(100);
 		game.getPaddle2().setyPosition(100);
-		game.getPaddle2().setyPosition(2412);
+		game.getPaddle2().setxPosition(2412);
 	}
 
 	public Drawing getDrawingPanel() {
