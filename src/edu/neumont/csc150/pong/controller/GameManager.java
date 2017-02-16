@@ -31,7 +31,7 @@ public class GameManager {
 		setScore(0);
 		paddle1 = new Paddle(30,250,50,100,100);
 		paddle2 = new Paddle(30,250,50,100,2412);
-		ball = new Ping(30,30,3,0,1265,611);
+		ball = new Ping(30,30,20,0,1265,611);
 		collisions = new Collision(this);
 		gui = new GUI(this);
 		gui.initGUI();
@@ -40,8 +40,10 @@ public class GameManager {
 	 * Resets the ball to the center position
 	 */
 	public void resetBall() {
-		ball = new Ping(30,30,40,10,1265,611);
-
+		ball.setxPosition(2412);
+		ball.setyPosition(100);
+		ball.setxVelocity(20);
+		ball.setyVelocity(0);
 	}
 	public void isWon(){
 		
@@ -91,10 +93,8 @@ public class GameManager {
 			if(paddleNum == PADDLE_BOTH) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle1.setyPosition(paddle1.getyPosition() + paddle1.getyVelocity());
-					paddle2.setyPosition(paddle2.getyPosition() + paddle2.getyVelocity());
 				} else {
 					paddle1.setyPosition(paddle1.getyPosition() - paddle1.getyVelocity());
-					paddle2.setyPosition(paddle2.getyPosition() - paddle2.getyVelocity());
 				}
 			} else if (paddleNum == PADDLE1) {
 				if (direction == VELOCITY_POSITIVE) {
@@ -102,15 +102,27 @@ public class GameManager {
 				} else {
 					paddle1.setyPosition(paddle1.getyPosition() - paddle1.getyVelocity());
 				}
-			} else if (paddleNum == PADDLE2) {
+			} 
+			if(paddle1.getyPosition() <=0){
+				paddle1.setyPosition(1);
+			}
+		if(paddle2.getyPosition() >= 0){
+			if(paddleNum == PADDLE_BOTH) {
+				if (direction == VELOCITY_POSITIVE) {
+					paddle2.setyPosition(paddle2.getyPosition() + paddle2.getyVelocity());
+				} else {
+					paddle2.setyPosition(paddle2.getyPosition() - paddle2.getyVelocity());
+				}
+			}  else if (paddleNum == PADDLE2) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle2.setyPosition(paddle2.getyPosition() + paddle2.getyVelocity());
 				} else {
 					paddle2.setyPosition(paddle2.getyPosition() - paddle2.getyVelocity());
 				}
 			}
-			if(paddle1.getyPosition() <=0){
-			paddle1.setyPosition(1);
+		} 
+		if(paddle2.getyPosition() <=0){
+			paddle2.setyPosition(1);
 		}
 			gui.getDrawingPanel().repaint();
 		}

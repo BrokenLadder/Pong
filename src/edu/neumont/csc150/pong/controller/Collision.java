@@ -29,25 +29,27 @@ public class Collision {
 	}
 	public void paddleCollision(){
 		int hitBoxLength = 10;
-		int p1Height = game.getPaddle1().getHeight();
-		int p2Height = game.getPaddle2().getHeight();
-		int p1Width = game.getPaddle1().getWidth();
-		int p2Width = game.getPaddle2().getWidth();
-		int p1XPos = game.getPaddle1().getxPosition();
-		int p1YPos = game.getPaddle1().getyPosition();
-		int p2XPos = game.getPaddle2().getxPosition();
-		int p2YPos = game.getPaddle1().getyPosition();
-		int ballx = game.getBall().getxPosition();
-		int bally = game.getBall().getyPosition();
 		System.out.println("Hello!");
-		//for (int i = 0;)
-		if(ballx == p1XPos + p1Width && bally >= p1YPos && bally <= p1YPos + p1Height){
-			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
-			
+		for (int i = 0; i < hitBoxLength;i++) {
+			int p1Height = game.getPaddle1().getHeight();
+			int p2Height = game.getPaddle2().getHeight();
+			int p1Width = game.getPaddle1().getWidth();
+			int p2Width = game.getPaddle2().getWidth();
+			int p1XPos = game.getPaddle1().getxPosition();
+			int p1YPos = game.getPaddle1().getyPosition();
+			int p2XPos = game.getPaddle2().getxPosition();
+			int p2YPos = game.getPaddle1().getyPosition();
+			int ballx = game.getBall().getxPosition();
+			int bally = game.getBall().getyPosition();
+			if(ballx == (p1XPos + p1Width) - i && bally >= p1YPos && bally <= p1YPos + p1Height){
+				game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+				
+			}
+			if(ballx == (p2XPos - p2Width) + i && bally >= p2YPos && bally <= p2YPos + p2Height){
+				game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+			}
 		}
-		else if(ballx == p2XPos - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
-			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
-		}
+		
 	}
 	/**
 	 * Detects if there is a collision and returns true if paddle 1 tries to leave the screen
