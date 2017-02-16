@@ -40,8 +40,9 @@ public class Collision {
 			int p2YPos = game.getPaddle2().getyPosition();
 			int ballx = game.getBall().getxPosition();
 			int bally = game.getBall().getyPosition();
+			int ballHeight = game.getBall().getHeight();
 			for (int i = 0; i < collisionBoxLength;i++) {
-				if(ballx == (p1XPos - i) + p1Width && bally >= p1YPos && bally <= p1YPos + p1Height){
+				if(ballx == (p1XPos - i) + p1Width && bally >= p1YPos - ballHeight && bally <= p1YPos + p1Height){
 					game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 					if (bally >= p1YPos + (p1Height / 3)) {
 						game.getBall().setyVelocity(game.getBall().getyVelocity() + 1 * 3);
@@ -51,7 +52,7 @@ public class Collision {
 						game.getBall().setyVelocity(game.getBall().getyVelocity() + 1 * -3);
 					}
 				}
-				if(ballx == (p2XPos + i) - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
+				if(ballx == (p2XPos + i) - p2Width && bally >= p2YPos - ballHeight && bally <= p2YPos + p2Height){
 					game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 					if (bally >= p2YPos + (p2Height / 3)) {
 						game.getBall().setyVelocity(game.getBall().getyVelocity() + 1 * 3);
