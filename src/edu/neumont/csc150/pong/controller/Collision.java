@@ -43,7 +43,25 @@ public class Collision {
 			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 			
 		}
-		if(ballx == p2XPos - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
+		else if(ballx == p2XPos - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
+			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+		}
+		
+		
+		else if(ballx == (p1XPos - 1) + p1Width && bally >= p1YPos && bally <= p1YPos + p1Height){
+			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+			
+		}
+		else if(ballx == (p2XPos + 1) - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
+			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+		}
+		
+		
+		else if(ballx == (p1XPos - 1) + p1Width && bally >= p1YPos && bally <= p1YPos + p1Height){
+			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+			
+		}
+		else if(ballx == (p2XPos + 1) - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
 			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 		}
 	}
