@@ -89,7 +89,7 @@ public class GameManager {
 	 * @param direction
 	 */
 	public void paddleMovement(int paddleNum, int direction) { //TODO add to UML
-		if(paddle1.getyPosition() >= 0){
+		if(paddle1.getyPosition() >= 0 && paddle1.getyPosition() <= 1000){
 			if(paddleNum == PADDLE_BOTH) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle1.setyPosition(paddle1.getyPosition() + paddle1.getyVelocity());
@@ -106,7 +106,10 @@ public class GameManager {
 			if(paddle1.getyPosition() <=0){
 				paddle1.setyPosition(1);
 			}
-		if(paddle2.getyPosition() >= 0){
+			if(paddle1.getyPosition() >= 1000){
+				paddle1.setyPosition(999);
+			}
+		if(paddle2.getyPosition() >= 0 && paddle2.getyPosition() <= 1000){
 			if(paddleNum == PADDLE_BOTH) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle2.setyPosition(paddle2.getyPosition() + paddle2.getyVelocity());
@@ -123,6 +126,9 @@ public class GameManager {
 		} 
 		if(paddle2.getyPosition() <=0){
 			paddle2.setyPosition(1);
+		}
+		if(paddle2.getyPosition() >= 1000){
+			paddle2.setyPosition(999);
 		}
 			gui.getDrawingPanel().repaint();
 		}
