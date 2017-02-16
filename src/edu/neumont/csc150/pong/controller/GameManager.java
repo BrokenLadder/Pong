@@ -31,7 +31,7 @@ public class GameManager {
 		setScore(0);
 		paddle1 = new Paddle(30,250,50,100,100);
 		paddle2 = new Paddle(30,250,50,100,2412);
-		ball = new Ping(30,30,20,0,1265,611);
+		ball = new Ping(30,30,30,0,1265,611);
 		collisions = new Collision(this);
 		gui = new GUI(this);
 		gui.initGUI();
@@ -40,9 +40,9 @@ public class GameManager {
 	 * Resets the ball to the center position
 	 */
 	public void resetBall() {
-		ball.setxPosition(100);
-		ball.setyPosition(2412);
-		ball.setxVelocity(20);
+		ball.setxPosition(1265);
+		ball.setyPosition(611);
+		ball.setxVelocity(30);
 		ball.setyVelocity(0);
 	}
 	public void isWon(){
@@ -89,7 +89,7 @@ public class GameManager {
 	 * @param direction
 	 */
 	public void paddleMovement(int paddleNum, int direction) { //TODO add to UML
-		if(paddle1.getyPosition() >= 0 && paddle1.getyPosition() <= 1000){
+		if(paddle1.getyPosition() >= 0){
 			if(paddleNum == PADDLE_BOTH) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle1.setyPosition(paddle1.getyPosition() + paddle1.getyVelocity());
@@ -106,10 +106,7 @@ public class GameManager {
 			if(paddle1.getyPosition() <=0){
 				paddle1.setyPosition(1);
 			}
-			if(paddle1.getyPosition() >= 1000){
-				paddle1.setyPosition(999);
-			}
-		if(paddle2.getyPosition() >= 0 && paddle2.getyPosition() <= 1000){
+		if(paddle2.getyPosition() >= 0){
 			if(paddleNum == PADDLE_BOTH) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle2.setyPosition(paddle2.getyPosition() + paddle2.getyVelocity());
@@ -126,9 +123,6 @@ public class GameManager {
 		} 
 		if(paddle2.getyPosition() <=0){
 			paddle2.setyPosition(1);
-		}
-		if(paddle2.getyPosition() >= 1000){
-			paddle2.setyPosition(999);
 		}
 			gui.getDrawingPanel().repaint();
 		}
