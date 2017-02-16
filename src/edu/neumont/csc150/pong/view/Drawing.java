@@ -66,7 +66,7 @@ public class Drawing extends JPanel implements ActionListener {
 			game.getBall().setxPosition(game.getBall().getxPosition() + game.getBall().getxVelocity());;
 			game.getBall().setyPosition(game.getBall().getyPosition() + game.getBall().getyVelocity());;
 			game.getCollisions().scoreCollision(2512, 0);
-			game.getCollisions().upDownCollision(0, 1000);
+			game.getCollisions().upDownCollision(0, 1250);
 			game.getCollisions().paddleCollision();
 		}
 		this.repaint();
