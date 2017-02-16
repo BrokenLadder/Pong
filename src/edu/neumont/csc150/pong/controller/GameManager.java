@@ -87,7 +87,7 @@ public class GameManager {
 	 * @param direction
 	 */
 	public void paddleMovement(int paddleNum, int direction) { //TODO add to UML
-		
+		if(paddle1.getyPosition() >= 0){
 			if(paddleNum == PADDLE_BOTH) {
 				if (direction == VELOCITY_POSITIVE) {
 					paddle1.setyPosition(paddle1.getyPosition() + paddle1.getyVelocity());
@@ -109,8 +109,12 @@ public class GameManager {
 					paddle2.setyPosition(paddle2.getyPosition() - paddle2.getyVelocity());
 				}
 			}
+			if(paddle1.getyPosition() <=0){
+			paddle1.setyPosition(1);
+		}
 			gui.getDrawingPanel().repaint();
 		}
+	}
 	
 	/**
 	 * returns Score
