@@ -31,7 +31,7 @@ public class GameManager {
 		setScore(0);
 		paddle1 = new Paddle(30,250,50,100,100);
 		paddle2 = new Paddle(30,250,50,100,2412);
-		ball = new Ping(30,30,3,0,1265,611);
+		ball = new Ping(30,30,20,0,1265,611);
 		collisions = new Collision(this);
 		gui = new GUI(this);
 		gui.initGUI();
@@ -40,7 +40,7 @@ public class GameManager {
 	 * Resets the ball to the center position
 	 */
 	public void resetBall() {
-		ball = new Ping(30,30,40,10,1265,611);
+		ball = new Ping(30,30,20,0,1265,611);
 
 	}
 	public void isWon(){
