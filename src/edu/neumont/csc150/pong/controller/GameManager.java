@@ -40,8 +40,8 @@ public class GameManager {
 	 * Resets the ball to the center position
 	 */
 	public void resetBall() {
-		ball.setxPosition(2412);
-		ball.setyPosition(100);
+		ball.setxPosition(100);
+		ball.setyPosition(2412);
 		ball.setxVelocity(20);
 		ball.setyVelocity(0);
 	}
