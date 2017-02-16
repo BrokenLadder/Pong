@@ -28,6 +28,7 @@ public class Collision {
 		
 	}
 	public void paddleCollision(){
+		int hitBoxLength = 10;
 		int p1Height = game.getPaddle1().getHeight();
 		int p2Height = game.getPaddle2().getHeight();
 		int p1Width = game.getPaddle1().getWidth();
@@ -39,29 +40,12 @@ public class Collision {
 		int ballx = game.getBall().getxPosition();
 		int bally = game.getBall().getyPosition();
 		System.out.println("Hello!");
+		//for (int i = 0;)
 		if(ballx == p1XPos + p1Width && bally >= p1YPos && bally <= p1YPos + p1Height){
 			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 			
 		}
 		else if(ballx == p2XPos - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
-			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
-		}
-		
-		
-		else if(ballx == (p1XPos - 1) + p1Width && bally >= p1YPos && bally <= p1YPos + p1Height){
-			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
-			
-		}
-		else if(ballx == (p2XPos + 1) - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
-			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
-		}
-		
-		
-		else if(ballx == (p1XPos - 1) + p1Width && bally >= p1YPos && bally <= p1YPos + p1Height){
-			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
-			
-		}
-		else if(ballx == (p2XPos + 1) - p2Width && bally >= p2YPos && bally <= p2YPos + p2Height){
 			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
 		}
 	}
