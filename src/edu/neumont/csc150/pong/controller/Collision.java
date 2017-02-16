@@ -1,5 +1,7 @@
 package edu.neumont.csc150.pong.controller;
 
+import javax.swing.JOptionPane;
+
 public class Collision {
 	private GameManager game;
 	public Collision(GameManager game){
@@ -15,20 +17,26 @@ public class Collision {
 		
 	}
 	public void scoreCollision(int rWall, int lWall){
-		if(game.getBall().getxPosition() >= rWall){
-			game.resetBall();
-			game.getGUI().getDrawingPanel().stopTimer();
-			game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+		if (game.getPlayer1Score() != 7 && game.getPlayer2Score() != 7) {
+			if(game.getBall().getxPosition() >= rWall){
+					game.setPlayer1Score(game.getPlayer1Score() + 1);
+					game.resetBall();
+					game.getGUI().getDrawingPanel().stopTimer();
+					game.getBall().setxVelocity(game.getBall().getxVelocity() * -1);
+			}
+			if (game.getBall().getxPosition() <= lWall){
+					game.setPlayer2Score(game.getPlayer2Score() + 1);
+					game.resetBall();
+					game.getGUI().getDrawingPanel().stopTimer();
+			}
+		} else {
+			game.setPlayer1Score(0);
+			game.setPlayer2Score(0);
+			JOptionPane.showMessageDialog(null, "GAME OVER: Press enter to play again");
 		}
-		if( game.getBall().getxPosition() <= lWall){
-			game.resetBall();
-			game.getGUI().getDrawingPanel().stopTimer();
-			
-		}
-		
+		game.getGUI().getDrawingPanel().startTimer();
 	}
 	public void paddleCollision(){
-		System.out.println("Hello!");
 		int collisionBoxLength = 30;
 			int p1Height = game.getPaddle1().getHeight();
 			int p2Height = game.getPaddle2().getHeight();

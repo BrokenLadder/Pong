@@ -46,8 +46,8 @@ public class Drawing extends JPanel implements ActionListener {
 		g.drawImage(image, 0, 0, null);
 		g.setColor(Color.BLUE);
 		g.setFont(scoreFont);
-		g.drawString("0", 1102, 250);
-		g.drawString("0", 1365, 250);
+		g.drawString(game.getPlayer1Score() + "", 1102, 250);
+		g.drawString(game.getPlayer2Score() + "", 1365, 250);
 		g.fillRect(game.getBall().getxPosition(), game.getBall().getyPosition(), 
 				   game.getBall().getWidth(), game.getBall().getHeight());
 		g.fillRect(game.getPaddle1().getxPosition(), game.getPaddle1().getyPosition(), 
