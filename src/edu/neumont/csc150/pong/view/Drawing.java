@@ -1,6 +1,7 @@
 package edu.neumont.csc150.pong.view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -24,6 +25,7 @@ public class Drawing extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -7398355064246963722L;
 	private GameManager game;
 	private BufferedImage image;
+	private Font scoreFont = new Font("Helvetica",150,150);
 	private Timer timer = new Timer(1, this);
 	/**
 	 * Sets the background to an image
@@ -43,6 +45,9 @@ public class Drawing extends JPanel implements ActionListener {
 		super.paint(g);
 		g.drawImage(image, 0, 0, null);
 		g.setColor(Color.BLUE);
+		g.setFont(scoreFont);
+		g.drawString("0", 1102, 250);
+		g.drawString("0", 1365, 250);
 		g.fillRect(game.getBall().getxPosition(), game.getBall().getyPosition(), 
 				   game.getBall().getWidth(), game.getBall().getHeight());
 		g.fillRect(game.getPaddle1().getxPosition(), game.getPaddle1().getyPosition(), 
@@ -61,7 +66,7 @@ public class Drawing extends JPanel implements ActionListener {
 			game.getBall().setxPosition(game.getBall().getxPosition() + game.getBall().getxVelocity());;
 			game.getBall().setyPosition(game.getBall().getyPosition() + game.getBall().getyVelocity());;
 			game.getCollisions().scoreCollision(2512, 0);
-			game.getCollisions().upDownCollision(0, 1386);
+			game.getCollisions().upDownCollision(0, 1000);
 			game.getCollisions().paddleCollision();
 		}
 		this.repaint();
