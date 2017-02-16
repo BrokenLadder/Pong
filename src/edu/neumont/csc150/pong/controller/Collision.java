@@ -8,8 +8,8 @@ public class Collision {
 	
 	
 	public void upDownCollision(int ceiling, int floor){
-		if(game.getBall().getyPosition() >= ceiling - game.getBall().getHeight() || game.getBall().getyPosition() <= floor - game.getBall().getHeight()){
-			//game.getBall().setyVelocity(game.getBall().getyVelocity() * -1);
+		if(game.getBall().getyPosition() <= ceiling - game.getBall().getHeight() || game.getBall().getyPosition() >= floor - game.getBall().getHeight()){
+			game.getBall().setyVelocity(game.getBall().getyVelocity() * -1);
 		}
 
 		
