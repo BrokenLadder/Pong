@@ -29,7 +29,7 @@ public class GUI implements ActionListener, KeyListener{
 	private JPanel mainPanel;
 	private JMenu menu, menu2;
 	private JMenuBar menuBar;
-	private JMenuItem newGame,exit,theme1, theme2;
+	private JMenuItem newGame, exit, theme1, theme2, theme3, theme4, theme5;
 	private Drawing drawingPanel;
 	private ArrayList<Paddle> isPressedDown = new ArrayList<>();
 	private ArrayList<Paddle> isPressedUp = new ArrayList<>();
@@ -87,9 +87,11 @@ public class GUI implements ActionListener, KeyListener{
 		menuBar = new JMenuBar();
 		newGame = new JMenuItem("New Game");
 		exit = new JMenuItem("Exit");
-		theme1 = new JMenuItem("Original");
+		theme1 = new JMenuItem("Atari");
 		theme2 = new JMenuItem("Zelda");
-		
+		theme3 = new JMenuItem("Dark Souls");
+		theme4 = new JMenuItem("Space");
+		theme5 = new JMenuItem("Skyrim");
 	}
 	/**
 	 * Adds the menu to the window
@@ -98,6 +100,9 @@ public class GUI implements ActionListener, KeyListener{
 		menu.add(newGame);
 		menu2.add(theme1);
 		menu2.add(theme2);
+		menu2.add(theme3);
+		menu2.add(theme4);
+		menu2.add(theme5);
 		menu.add(exit);
 		menuBar.add(menu);
 		menuBar.add(menu2);
@@ -116,6 +121,9 @@ public class GUI implements ActionListener, KeyListener{
 		newGame.addActionListener(this);
 		theme1.addActionListener(this);
 		theme2.addActionListener(this);
+		theme3.addActionListener(this);
+		theme4.addActionListener(this);
+		theme5.addActionListener(this);
 		exit.addActionListener(this);
 	}
 	/**
@@ -138,6 +146,10 @@ public class GUI implements ActionListener, KeyListener{
 		exit.setFont(gameFont);
 		theme1.setFont(gameFont);
 		theme2.setFont(gameFont);
+		theme3.setFont(gameFont);
+		theme4.setFont(gameFont);
+		theme5.setFont(gameFont);
+		
 	}
 	/**
 	 * Sets the Margins of the GUI
@@ -165,8 +177,41 @@ public class GUI implements ActionListener, KeyListener{
 				game.restart();
 			} else if(sourceItem.getText().equals("Exit")) {
 				System.exit(0);
-			} else if(sourceItem.getText().equals("Theme")) {
-				
+			} else if(sourceItem.getText().equals("Atari")) {
+				try {
+					drawingPanel.getTheme().Theme1();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				drawingPanel.repaint();
+			} else if(sourceItem.getText().equals("Zelda")) {
+				try {
+					drawingPanel.getTheme().Theme2();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				drawingPanel.repaint();
+			} else if(sourceItem.getText().equals("Dark Souls")) {
+				try {
+					drawingPanel.getTheme().Theme3();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				drawingPanel.repaint();
+			} else if(sourceItem.getText().equals("Space")) {
+				try {
+					drawingPanel.getTheme().Theme4();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				drawingPanel.repaint();
+			} else if(sourceItem.getText().equals("Skyrim")) {
+				try {
+					drawingPanel.getTheme().Theme5();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				drawingPanel.repaint();
 			}
 		}
 	}

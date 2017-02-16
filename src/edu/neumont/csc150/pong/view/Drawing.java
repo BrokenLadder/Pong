@@ -25,6 +25,8 @@ public class Drawing extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -7398355064246963722L;
 	private GameManager game;
 	private BufferedImage image;
+	private Color color;
+	private Themes theme;
 	private Font scoreFont = new Font("Helvetica",150,150);
 	private Timer timer = new Timer(1, this);
 	/**
@@ -34,7 +36,8 @@ public class Drawing extends JPanel implements ActionListener {
 	 */
 	public Drawing(GameManager game) throws IOException {
 		this.game = game;
-		image = ImageIO.read(new File("zelda_theme1.png"));
+		theme = new Themes(this);
+		theme.Theme1();
 		//this.setBackground(Color.darkGray);
 	}
 	/**
@@ -44,7 +47,7 @@ public class Drawing extends JPanel implements ActionListener {
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.drawImage(image, 0, 0, null);
-		g.setColor(Color.BLUE);
+		g.setColor(color);
 		g.setFont(scoreFont);
 		g.drawString(game.getPlayer1Score() + "", 1102, 250);
 		g.drawString(game.getPlayer2Score() + "", 1365, 250);
@@ -84,6 +87,13 @@ public class Drawing extends JPanel implements ActionListener {
 	public void stopTimer(){
 		this.timer.stop();
 	}
-
-	
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	public void setImage(BufferedImage image) {
+		this.image = image;
+	}
+	public Themes getTheme() {
+		return theme;
+	}
 }
