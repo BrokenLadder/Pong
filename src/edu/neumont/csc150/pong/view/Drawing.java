@@ -63,7 +63,6 @@ public class Drawing extends JPanel implements ActionListener {
 			game.getCollisions().scoreCollision(2512, 0);
 			game.getCollisions().upDownCollision(0, 1386);
 			game.getCollisions().paddleCollision();
-			
 		}
 		this.repaint();
 		
