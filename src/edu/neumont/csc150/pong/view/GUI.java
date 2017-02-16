@@ -27,9 +27,9 @@ public class GUI implements ActionListener, KeyListener{
 	private GameManager game;
 	private JFrame window;
 	private JPanel mainPanel;
-	private JMenu menu;
+	private JMenu menu, menu2;
 	private JMenuBar menuBar;
-	private JMenuItem newGame,exit,theme;
+	private JMenuItem newGame,exit,theme1;
 	private Drawing drawingPanel;
 	private ArrayList<Paddle> isPressedDown = new ArrayList<>();
 	private ArrayList<Paddle> isPressedUp = new ArrayList<>();
@@ -83,19 +83,21 @@ public class GUI implements ActionListener, KeyListener{
 		mainPanel = new JPanel();
 		drawingPanel = new Drawing(game);
 		menu = new JMenu("Game Menu");
+		menu2 = new JMenu("Themes");
 		menuBar = new JMenuBar();
 		newGame = new JMenuItem("New Game");
 		exit = new JMenuItem("Exit");
-		theme = new JMenuItem("Theme");
+		theme1 = new JMenuItem("Theme");
 	}
 	/**
 	 * Adds the menu to the window
 	 */
 	private void createMenu() { //TODO add to uml
 		menu.add(newGame);
-		menu.add(theme);
+		menu2.add(theme1);
 		menu.add(exit);
 		menuBar.add(menu);
+		menuBar.add(menu2);
 		window.setJMenuBar(menuBar);
 	}
 	/**
@@ -109,7 +111,7 @@ public class GUI implements ActionListener, KeyListener{
 	 */
 	private void addListeners() {
 		newGame.addActionListener(this);
-		theme.addActionListener(this);
+		theme1.addActionListener(this);
 		exit.addActionListener(this);
 	}
 	/**
@@ -128,7 +130,7 @@ public class GUI implements ActionListener, KeyListener{
 		menu.setFont(gameFont);
 		newGame.setFont(gameFont);
 		exit.setFont(gameFont);
-		theme.setFont(gameFont);
+		theme1.setFont(gameFont);
 	}
 	/**
 	 * Sets the Margins of the GUI
